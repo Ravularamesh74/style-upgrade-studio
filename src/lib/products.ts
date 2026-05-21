@@ -15,6 +15,7 @@ const img = (id: string, w = 800) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const products: Product[] = [
+
   { id: "1", name: "Oversized Graphic Tee — Daddy Drip", category: "men", type: "T-Shirts", price: 799, mrp: 1499, image: img("photo-1521572163474-6864f9cf17ab"), badge: "HOT", brand: "Style Daddy", description: "Heavyweight 240 GSM cotton oversized tee with bold front graphic. Drop shoulder, ribbed crew neck." },
   { id: "2", name: "Cargo Joggers — Street Tactical", category: "men", type: "Bottoms", price: 1199, mrp: 1999, image: img("photo-1542272604-787c3835535d"), description: "Tapered cargo joggers with 6 utility pockets. Stretch twill, drawcord waist." },
   { id: "3", name: "Minimal Logo Hoodie — Jet Black", category: "men", type: "Hoodies", price: 1499, mrp: 2499, image: img("photo-1556821840-3a63f95609a7"), badge: "NEW", brand: "Style Daddy", description: "Brushed fleece hoodie with embroidered chest logo. Kangaroo pocket, ribbed cuffs." },
@@ -41,6 +42,13 @@ export const products: Product[] = [
   { id: "24", name: "Chunky Dad Sneakers", category: "men", type: "Footwear", price: 2499, mrp: 3999, image: img("photo-1542291026-7eec264c27ff"), badge: "TRENDING", description: "Chunky-sole dad sneakers. Comfort + chaos." },
   { id: "25", name: "Leather Biker Jacket", category: "men", type: "Jackets", price: 4999, mrp: 8999, image: img("photo-1551028719-00167b16eac5"), badge: "HOT", description: "Genuine leather biker with asymmetric zip. Built to last decades." },
   { id: "26", name: "Skate High Top Sneakers", category: "men", type: "Footwear", price: 1899, mrp: 2999, image: img("photo-1525966222134-fcfa99b8ae77"), description: "Canvas high tops with vulcanized sole. Built for the streets." },
+  { id: "27", name: "Dad Cap — Embroidered", category: "men", type: "Accessories", price: 449, mrp: 799, image: img("photo-1588850561407-ed78c282e89b"), description: "Classic dad cap with embroidered logo. Adjustable strap." },
+  { id: "28", name: "Plaid Flannel Shirt", category: "men", type: "Shirts", price: 1299, mrp: 2199, image: img("photo-1591047139829-d91aecb6caea"), description: "Soft plaid flannel shirt with chest pockets. Wear it open or buttoned." },
+  { id: "29", name: "Ribbed Knit Beanie", category: "men", type: "Accessories", price: 349, mrp: 649, image: img("photo-1511367461989-f85a21fda167"), description: "Cozy ribbed knit beanie. One size fits all." },
+  { id: "30", name: "Denim Trucker Jacket", category: "men", type: "Jackets", price: 1999, mrp: 3499, image: img("photo-1551028719-00167b16eac5"), description: "Classic denim trucker with button-front and chest pockets." }, 
+  
+
+
 ];
 
 export const getProduct = (id: string) => products.find((p) => p.id === id);

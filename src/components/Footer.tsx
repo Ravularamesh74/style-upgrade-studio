@@ -1,64 +1,314 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, MapPin, Phone, Mail } from "lucide-react";
+import {
+  ArrowRight,
+  MapPin,
+  Phone,
+  MessageCircle,
+} from "lucide-react";
+import { motion } from "framer-motion";
+
+const links = [
+  { name: "New Arrivals", to: "/men" },
+  { name: "Best Sellers", to: "/men" },
+  { name: "Collections", to: "/men" },
+  { name: "Sale", to: "/sale" },
+  { name: "About", to: "/about" },
+  { name: "Contact", to: "/contact" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background mt-20">
-      <div className="container mx-auto px-4 py-16 grid gap-10 md:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="bg-brand-red text-background font-display text-xl px-3 py-1 leading-none">SD</div>
-            <span className="font-display text-xl">STYLE DADDY</span>
+    <footer className="relative overflow-hidden bg-black text-white">
+      {/* Background Grid */}
+
+      <div className="absolute inset-0 opacity-20">
+        <div
+          className="
+            absolute
+            inset-0
+            bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]
+            bg-[size:80px_80px]
+          "
+        />
+      </div>
+
+      {/* Glow */}
+
+      <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-red-500/10 blur-[180px]" />
+
+      {/* Marquee */}
+
+      <section className="relative border-y border-white/10 overflow-hidden">
+        <motion.div
+          animate={{
+            x: ["0%", "-100%"],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 22,
+            ease: "linear",
+          }}
+          className="
+            flex
+            whitespace-nowrap
+            gap-20
+            py-5
+            text-2xl
+            md:text-3xl
+            font-black
+            uppercase
+          "
+        >
+          <span>STYLE DADDY</span>
+          <span>PREMIUM STREETWEAR</span>
+          <span>NEW DROP</span>
+          <span>LIMITED EDITION</span>
+          <span>HYDERABAD STREET CULTURE</span>
+          <span>STYLE DADDY</span>
+          <span>PREMIUM STREETWEAR</span>
+          <span>NEW DROP</span>
+        </motion.div>
+      </section>
+
+      {/* Main */}
+
+      <section className="relative z-10 container mx-auto px-6 py-24">
+        <div className="grid gap-16 lg:grid-cols-2 items-center">
+          {/* Left */}
+
+          <div>
+            <span className="uppercase tracking-[6px] text-red-500 text-xs">
+              Street Luxury
+            </span>
+
+            <h2
+              className="
+                mt-6
+                text-5xl
+                md:text-7xl
+                lg:text-8xl
+                font-black
+                uppercase
+                leading-[0.9]
+              "
+            >
+              STYLE
+              <br />
+              DADDY
+            </h2>
+
+            <p className="mt-8 max-w-xl text-lg text-white/60 leading-relaxed">
+              Crafted for creators, trendsetters and dreamers.
+              Every piece is designed to elevate confidence and
+              redefine modern streetwear culture.
+            </p>
+
+            <div className="mt-12 flex flex-wrap gap-8">
+              <div>
+                <div className="text-4xl font-black">100+</div>
+                <div className="text-white/50 text-sm uppercase">
+                  Designs
+                </div>
+              </div>
+
+              <div>
+                <div className="text-4xl font-black">24/7</div>
+                <div className="text-white/50 text-sm uppercase">
+                  Support
+                </div>
+              </div>
+
+              <div>
+                <div className="text-4xl font-black">2026</div>
+                <div className="text-white/50 text-sm uppercase">
+                  Collection
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-sm text-background/70 leading-relaxed">
-            Stay Trendy. Stay Daddy. Hyderabad's loudest streetwear destination since 2024.
+
+          {/* Right */}
+
+          <div className="space-y-6">
+            {/* WhatsApp Card */}
+
+            <a
+              href="https://wa.me/919640639926"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group
+                relative
+                block
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-white/10
+                bg-white/[0.03]
+                backdrop-blur-xl
+                p-8
+                transition-all
+                hover:border-green-500/50
+                hover:bg-green-500/10
+              "
+            >
+              <MessageCircle
+                size={48}
+                className="text-green-500"
+              />
+
+              <p className="mt-4 text-white/50 uppercase tracking-[4px] text-xs">
+                Order Directly
+              </p>
+
+              <h3 className="mt-2 text-3xl font-black">
+                WhatsApp
+              </h3>
+
+              <p className="mt-3 text-white/70">
+                +91 96406 39926
+              </p>
+
+              <ArrowRight
+                className="
+                  absolute
+                  right-8
+                  top-8
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-2
+                "
+              />
+            </a>
+
+            {/* Contact */}
+
+            <div
+              className="
+                rounded-[32px]
+                border
+                border-white/10
+                bg-white/[0.03]
+                p-8
+              "
+            >
+              <h4 className="font-black text-xl uppercase">
+                Contact
+              </h4>
+
+              <div className="mt-6 space-y-5 text-white/70">
+                <div className="flex gap-3 items-center">
+                  <MapPin
+                    size={18}
+                    className="text-red-500"
+                  />
+                  Hyderabad, Telangana
+                </div>
+
+                <div className="flex gap-3 items-center">
+                  <Phone
+                    size={18}
+                    className="text-red-500"
+                  />
+                  +91 96406 39926
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation */}
+
+        <div className="mt-24 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          {links.map((item) => (
+            <Link
+              key={item.name}
+              to={item.to}
+              className="
+                relative
+                text-white/60
+                uppercase
+                tracking-wider
+                transition-all
+                hover:text-white
+                after:absolute
+                after:left-0
+                after:-bottom-2
+                after:h-px
+                after:w-0
+                after:bg-red-500
+                after:transition-all
+                hover:after:w-full
+              "
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Huge Watermark */}
+
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          pointer-events-none
+          select-none
+          leading-none
+          font-black
+          uppercase
+          text-[120px]
+          md:text-[220px]
+          lg:text-[320px]
+          text-white/[0.03]
+        "
+      >
+        STYLE
+      </div>
+
+      {/* Bottom */}
+
+      <section className="relative border-t border-white/10">
+        <div
+          className="
+            container
+            mx-auto
+            px-6
+            py-8
+            flex
+            flex-col
+            md:flex-row
+            justify-between
+            items-center
+            gap-4
+          "
+        >
+          <p className="text-white/40 uppercase tracking-[3px] text-xs">
+            © {new Date().getFullYear()} STYLE DADDY
           </p>
+
+          <p className="text-white/40 uppercase tracking-[3px] text-xs">
+            DESIGNED IN HYDERABAD
+          </p>
+
           <a
-            href="https://instagram.com/_style_daddy_"
+            href="https://wa.me/919640639926"
             target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 mt-5 text-sm hover:text-brand-yellow"
+            rel="noopener noreferrer"
+            className="
+              text-red-500
+              font-bold
+              uppercase
+              tracking-wider
+              hover:text-red-400
+            "
           >
-            <Instagram className="h-4 w-4" /> @_style_daddy_
+            WhatsApp Orders →
           </a>
         </div>
-
-        <div>
-          <h4 className="font-display mb-4 text-sm">SHOP</h4>
-          <ul className="space-y-2 text-sm text-background/70">
-            <li><Link to="/men" className="hover:text-brand-yellow">All Products</Link></li>
-            <li><Link to="/men" className="hover:text-brand-yellow">T-Shirts</Link></li>
-            <li><Link to="/men" className="hover:text-brand-yellow">Hoodies</Link></li>
-            <li><Link to="/men" className="hover:text-brand-yellow">Bottoms</Link></li>
-            <li><Link to="/sale" className="hover:text-brand-yellow">Sale</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-display mb-4 text-sm">HELP</h4>
-          <ul className="space-y-2 text-sm text-background/70">
-            <li><Link to="/about" className="hover:text-brand-yellow">About Us</Link></li>
-            <li><Link to="/contact" className="hover:text-brand-yellow">Contact</Link></li>
-            <li><a className="hover:text-brand-yellow">Shipping</a></li>
-            <li><a className="hover:text-brand-yellow">Returns</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-display mb-4 text-sm">VISIT THE STORE</h4>
-          <ul className="space-y-3 text-sm text-background/70">
-            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-brand-red" /> Shop No. 14, Main Road, Nacharam, Hyderabad — 500076</li>
-            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-brand-red" /> +91 90000 00000</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-brand-red" /> hello@styledaddy.in</li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-background/10">
-        <div className="container mx-auto px-4 py-5 text-xs text-background/50 flex flex-wrap items-center justify-between gap-2">
-          <span>© {new Date().getFullYear()} Style Daddy. All rights reserved.</span>
-          <span>Made in Hyderabad with 🔥</span>
-        </div>
-      </div>
+      </section>
     </footer>
   );
 }
