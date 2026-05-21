@@ -14,7 +14,7 @@ export const Route = createFileRoute("/men")({
   }),
   component: () => (
     <CategoryPage
-      title="MEN"
+      title="SHOP ALL"
       subtitle="Oversized fits, bold prints, and the heaviest fabrics. Built for the streets of Hyderabad."
       category="men"
       cover={cover}
