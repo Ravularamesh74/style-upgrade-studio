@@ -12,7 +12,7 @@ function cleanup() {
   const now = Date.now();
 
   while (
-    queue.length &&
+    queue.length > 0 &&
     now - queue[0].at > TTL_MS
   ) {
     queue.shift();
@@ -36,6 +36,7 @@ const REGISTERED =
   "__ERROR_CAPTURE_REGISTERED__";
 
 if (
+  typeof globalThis !== "undefined" &&
   typeof globalThis.addEventListener ===
     "function" &&
   !(globalThis as any)[REGISTERED]
@@ -44,28 +45,44 @@ if (
 
   globalThis.addEventListener(
     "error",
-    event => {
+    (event: Event) => {
+      const errorEvent =
+        event as ErrorEvent;
+
       record(
-        (event as ErrorEvent).error ??
-          event
+        errorEvent.error ?? errorEvent
       );
     }
   );
 
   globalThis.addEventListener(
     "unhandledrejection",
-    event => {
-      record(
-        (
-          event as PromiseRejectionEvent
-        ).reason
-      );
+    (event: Event) => {
+      const rejectionEvent =
+        event as PromiseRejectionEvent;
+
+      record(rejectionEvent.reason);
     }
   );
 }
 
-export function consumeCapturedError() {
+/**
+ * Returns and removes the most recently captured error.
+ */
+export function consumeLastCapturedError() {
   cleanup();
 
   return queue.shift()?.error;
+}
+
+/**
+ * Returns the most recently captured error
+ * without removing it.
+ */
+export function getLastCapturedError() {
+  cleanup();
+
+  return queue.length
+    ? queue[queue.length - 1].error
+    : undefined;
 }
