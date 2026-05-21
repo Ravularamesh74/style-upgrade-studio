@@ -8,7 +8,7 @@ export type Product = {
   image: string;
   badge?: string;
   description: string;
-  brand: string;
+  brand?: string;
 };
 
 const img = (id: string, w = 800) =>
