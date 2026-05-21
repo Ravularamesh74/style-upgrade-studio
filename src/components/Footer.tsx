@@ -26,9 +26,10 @@ export function Footer() {
         <div>
           <h4 className="font-display mb-4 text-sm">SHOP</h4>
           <ul className="space-y-2 text-sm text-background/70">
-            <li><Link to="/men" className="hover:text-brand-yellow">Men</Link></li>
-            <li><Link to="/women" className="hover:text-brand-yellow">Women</Link></li>
-            <li><Link to="/kids" className="hover:text-brand-yellow">Kids</Link></li>
+            <li><Link to="/men" className="hover:text-brand-yellow">All Products</Link></li>
+            <li><Link to="/men" className="hover:text-brand-yellow">T-Shirts</Link></li>
+            <li><Link to="/men" className="hover:text-brand-yellow">Hoodies</Link></li>
+            <li><Link to="/men" className="hover:text-brand-yellow">Bottoms</Link></li>
             <li><Link to="/sale" className="hover:text-brand-yellow">Sale</Link></li>
           </ul>
         </div>

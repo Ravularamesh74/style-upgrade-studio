@@ -1,7 +1,7 @@
 export type Product = {
   id: string;
   name: string;
-  category: "men" | "women" | "kids";
+  category: "men";
   type: string;
   price: number;
   mrp: number;
@@ -23,24 +23,27 @@ export const products: Product[] = [
   { id: "6", name: "Street Art Combo (Tee + Cargo)", category: "men", type: "Combo", price: 1899, mrp: 3499, image: img("photo-1490481651871-ab68de25d43d"), badge: "COMBO 45% OFF", description: "Curated combo: graphic tee + matching cargo. Picked by the Daddy himself." },
   { id: "7", name: "Acid Wash Boxy Tee", category: "men", type: "T-Shirts", price: 699, mrp: 1299, image: img("photo-1581655353564-df123a1eb820"), description: "Vintage acid wash on heavyweight cotton. Boxy cropped silhouette." },
   { id: "8", name: "Varsity Bomber Jacket", category: "men", type: "Jackets", price: 2299, mrp: 3999, image: img("photo-1551028719-00167b16eac5"), badge: "NEW", description: "Wool-blend bomber with chenille patches, satin lining, ribbed trims." },
-  { id: "9", name: "Pleated Mini Skirt — Y2K", category: "women", type: "Bottoms", price: 999, mrp: 1799, image: img("photo-1583496661160-fb5886a13d44"), badge: "HOT", description: "Low-rise pleated mini, Y2K coded. Wear with chunky sneakers." },
-  { id: "10", name: "Crop Hoodie — Sugar Pink", category: "women", type: "Hoodies", price: 1199, mrp: 1999, image: img("photo-1556821840-3a63f95609a7"), description: "Cropped fleece hoodie with raw hem and oversized hood." },
-  { id: "11", name: "Baby Tee — Daddy's Girl", category: "women", type: "T-Shirts", price: 599, mrp: 999, image: img("photo-1503342217505-b0a15ec3261c"), badge: "NEW", description: "Slim-fit baby tee, 100% cotton, statement print." },
-  { id: "12", name: "Wide Leg Parachute Pants", category: "women", type: "Bottoms", price: 1399, mrp: 2299, image: img("photo-1594633312681-425c7b97ccd1"), description: "Tech nylon parachute pants with elasticated hem." },
-  { id: "13", name: "Oversized Boyfriend Shirt", category: "women", type: "Shirts", price: 1099, mrp: 1799, image: img("photo-1485518882345-15568b007407"), description: "Cotton poplin shirt cut extra-oversized. Layer it loose." },
-  { id: "14", name: "Mesh Layering Top", category: "women", type: "T-Shirts", price: 499, mrp: 899, image: img("photo-1495121605193-b116b5b9c5fe"), description: "Sheer mesh long sleeve. Layering essential." },
-  { id: "15", name: "Denim Mini Dress", category: "women", type: "Dresses", price: 1499, mrp: 2499, image: img("photo-1572804013309-59a88b7e92f1"), badge: "TRENDING", description: "Structured denim mini with corset waist." },
-  { id: "16", name: "Co-ord Set — Cargo Skirt + Crop", category: "women", type: "Combo", price: 1999, mrp: 3499, image: img("photo-1483985988355-763728e1935b"), badge: "COMBO", description: "Two-piece utility set. Matching cargo mini + crop top." },
-  { id: "17", name: "Mini Daddy Hoodie", category: "kids", type: "Hoodies", price: 899, mrp: 1499, image: img("photo-1503944583220-79d8926ad5e2"), badge: "NEW", description: "Heavyweight kids hoodie with playful print." },
-  { id: "18", name: "Kids Graphic Tee Pack of 2", category: "kids", type: "T-Shirts", price: 799, mrp: 1399, image: img("photo-1519278409-1f56fdda7fe5"), badge: "PACK", description: "Two graphic tees, 100% cotton. Sized 2Y–10Y." },
-  { id: "19", name: "Joggers — Mini Tactical", category: "kids", type: "Bottoms", price: 699, mrp: 1199, image: img("photo-1545558014-8692077e9b5c"), description: "Soft cotton-fleece joggers with cargo pockets." },
-  { id: "20", name: "Skater Denim Jacket", category: "kids", type: "Jackets", price: 1299, mrp: 2199, image: img("photo-1519278409-1f56fdda7fe5"), description: "Classic skater denim jacket with patch detailing." },
+  { id: "9", name: "Flannel Overshirt — Heavyweight", category: "men", type: "Shirts", price: 1599, mrp: 2699, image: img("photo-1591047139829-d91aecb6caea"), badge: "NEW", description: "Brushed flannel overshirt with chest pockets. Wear it open or buttoned." },
+  { id: "10", name: "Tech Track Pants", category: "men", type: "Bottoms", price: 1099, mrp: 1899, image: img("photo-1473966968600-fa801b869a1a"), description: "Lightweight tech fabric with side stripes and zip pockets." },
+  { id: "11", name: "Pullover Hoodie — Off White", category: "men", type: "Hoodies", price: 1299, mrp: 2199, image: img("photo-1620799140408-edc6dcb6d633"), description: "Mid-weight pullover, double-lined hood, brushed interior." },
+  { id: "12", name: "Striped Knit Polo", category: "men", type: "Shirts", price: 1099, mrp: 1899, image: img("photo-1618354691438-25bc04584c23"), description: "Retro knit polo, ribbed collar, three-button placket." },
+  { id: "13", name: "Cargo Shorts — Utility", category: "men", type: "Bottoms", price: 899, mrp: 1599, image: img("photo-1591195853828-11db59a44f6b"), description: "Knee-length cargo shorts with multi-pocket utility." },
+  { id: "14", name: "Tie Dye Tee — Sunset", category: "men", type: "T-Shirts", price: 749, mrp: 1299, image: img("photo-1576566588028-4147f3842f27"), description: "Hand-dyed cotton tee, no two are alike." },
+  { id: "15", name: "Windbreaker Jacket — Color Block", category: "men", type: "Jackets", price: 1899, mrp: 3199, image: img("photo-1591047139756-eda1da7a9f04"), badge: "NEW", description: "Lightweight nylon windbreaker with bold color-block panels." },
+  { id: "16", name: "Daddy Logo Combo (Hoodie + Joggers)", category: "men", type: "Combo", price: 2499, mrp: 4499, image: img("photo-1542327897-d73f4005b533"), badge: "COMBO 44% OFF", description: "Co-ord set in jet black. Hoodie + matching joggers." },
+  { id: "17", name: "Henley Long Sleeve", category: "men", type: "T-Shirts", price: 899, mrp: 1499, image: img("photo-1503341504253-dff4815485f1"), description: "Soft cotton henley with three-button placket. Slim fit." },
+  { id: "18", name: "Painter Pants — Carpenter Fit", category: "men", type: "Bottoms", price: 1499, mrp: 2499, image: img("photo-1517445312882-bc9910d016b7"), badge: "TRENDING", description: "Sturdy canvas painter pants with hammer loop and tool pockets." },
+  { id: "19", name: "Zip-Up Hoodie — Classic Grey", category: "men", type: "Hoodies", price: 1399, mrp: 2299, image: img("photo-1620799139507-2a76f79a2f4d"), description: "Full-zip hoodie in melange grey. Wardrobe staple." },
+  { id: "20", name: "Oxford Button-Down", category: "men", type: "Shirts", price: 1199, mrp: 1999, image: img("photo-1596755094514-f87e34085b2c"), description: "Classic oxford in cotton, button-down collar, regular fit." },
   { id: "21", name: "Bucket Hat — Reversible", category: "men", type: "Accessories", price: 399, mrp: 699, image: img("photo-1521369909029-2afed882baee"), description: "Reversible bucket hat. Two looks, one hat." },
-  { id: "22", name: "Chain Belt — Heavy Metal", category: "women", type: "Accessories", price: 499, mrp: 899, image: img("photo-1591348278863-a8fb3887e2aa"), description: "Statement chain belt. Adjustable fit." },
+  { id: "22", name: "Trucker Cap — Mesh Back", category: "men", type: "Accessories", price: 499, mrp: 899, image: img("photo-1588850561407-ed78c282e89b"), description: "Snapback trucker cap with mesh back and curved brim." },
   { id: "23", name: "Cross-body Tech Sling", category: "men", type: "Accessories", price: 899, mrp: 1599, image: img("photo-1547949003-9792a18a2601"), badge: "NEW", description: "Water-resistant tech sling with 4 compartments." },
   { id: "24", name: "Chunky Dad Sneakers", category: "men", type: "Footwear", price: 2499, mrp: 3999, image: img("photo-1542291026-7eec264c27ff"), badge: "TRENDING", description: "Chunky-sole dad sneakers. Comfort + chaos." },
+  { id: "25", name: "Leather Biker Jacket", category: "men", type: "Jackets", price: 4999, mrp: 8999, image: img("photo-1551028719-00167b16eac5"), badge: "HOT", description: "Genuine leather biker with asymmetric zip. Built to last decades." },
+  { id: "26", name: "Skate High Top Sneakers", category: "men", type: "Footwear", price: 1899, mrp: 2999, image: img("photo-1525966222134-fcfa99b8ae77"), description: "Canvas high tops with vulcanized sole. Built for the streets." },
 ];
 
 export const getProduct = (id: string) => products.find((p) => p.id === id);
 export const byCategory = (c: Product["category"]) => products.filter((p) => p.category === c);
+export const byType = (t: string) => products.filter((p) => p.type === t);
 export const featured = () => products.filter((p) => p.badge).slice(0, 8);

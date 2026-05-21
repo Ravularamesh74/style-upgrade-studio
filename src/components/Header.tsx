@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useCart } from "@/lib/cart";
 
 const nav = [
-  { label: "MEN", to: "/men" },
-  { label: "WOMEN", to: "/women" },
-  { label: "KIDS", to: "/kids" },
+  { label: "SHOP", to: "/men" },
+  { label: "T-SHIRTS", to: "/men" },
+  { label: "HOODIES", to: "/men" },
   { label: "SALE", to: "/sale" },
   { label: "ABOUT", to: "/about" },
   { label: "CONTACT", to: "/contact" },

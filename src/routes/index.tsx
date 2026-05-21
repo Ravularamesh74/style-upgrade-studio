@@ -3,11 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Truck, ShieldCheck, RotateCcw, Instagram } from "lucide-react";
 import hero from "@/assets/hero-streetwear.jpg";
 import catMen from "@/assets/cat-men.jpg";
-import catWomen from "@/assets/cat-women.jpg";
-import catKids from "@/assets/cat-kids.jpg";
 import { Marquee } from "@/components/Marquee";
 import { ProductCard } from "@/components/ProductCard";
-import { products, featured } from "@/lib/products";
+import { products, featured, byType } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -54,23 +52,17 @@ function Index() {
       {/* CATEGORY RAIL */}
       <section className="container mx-auto px-4 py-16">
         <div className="flex items-end justify-between mb-6">
-          <h2 className="font-display text-3xl md:text-4xl">SHOP BY DEPARTMENT</h2>
-          <span className="text-sm text-muted-foreground hidden sm:inline">For him. For her. For the next gen.</span>
+          <h2 className="font-display text-3xl md:text-4xl">SHOP BY CATEGORY</h2>
+          <span className="text-sm text-muted-foreground hidden sm:inline">Built for the modern man.</span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            { img: catMen, to: "/men", label: "MEN" },
-            { img: catWomen, to: "/women", label: "WOMEN" },
-            { img: catKids, to: "/kids", label: "KIDS" },
-          ].map((c) => (
-            <Link key={c.to} to={c.to} className="group relative block overflow-hidden aspect-[3/4]">
-              <img src={c.img} alt={c.label} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {["T-Shirts", "Hoodies", "Bottoms", "Jackets"].map((label) => (
+            <Link key={label} to="/men" className="group relative block overflow-hidden aspect-[3/4]">
+              <img src={byType(label)[0]?.image ?? catMen} alt={label} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-background">
-                <h3 className="font-display text-3xl">{c.label}</h3>
-                <span className="inline-flex items-center gap-1 text-xs font-display border border-background/60 px-3 py-2 group-hover:bg-background group-hover:text-foreground">
-                  SHOP <ArrowRight className="h-3 w-3" />
-                </span>
+                <h3 className="font-display text-xl md:text-2xl uppercase">{label}</h3>
+                <ArrowRight className="h-4 w-4" />
               </div>
             </Link>
           ))}
@@ -103,7 +95,7 @@ function Index() {
             </Link>
           </div>
           <div className="relative min-h-72">
-            <img src={catWomen} alt="Sale" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={catMen} alt="Sale" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -112,7 +104,7 @@ function Index() {
       <section className="container mx-auto px-4 py-10">
         <div className="flex items-end justify-between mb-6">
           <h2 className="font-display text-3xl md:text-4xl">NEW ARRIVALS</h2>
-          <Link to="/women" className="text-sm font-display hover:text-brand-red">VIEW ALL →</Link>
+          <Link to="/men" className="text-sm font-display hover:text-brand-red">VIEW ALL →</Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8">
           {newArrivals.map((p) => <ProductCard key={p.id} p={p} />)}
