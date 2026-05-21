@@ -9,21 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WomenRouteImport } from './routes/women'
 import { Route as SaleRouteImport } from './routes/sale'
 import { Route as MenRouteImport } from './routes/men'
-import { Route as KidsRouteImport } from './routes/kids'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
 
-const WomenRoute = WomenRouteImport.update({
-  id: '/women',
-  path: '/women',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SaleRoute = SaleRouteImport.update({
   id: '/sale',
   path: '/sale',
@@ -32,11 +25,6 @@ const SaleRoute = SaleRouteImport.update({
 const MenRoute = MenRouteImport.update({
   id: '/men',
   path: '/men',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KidsRoute = KidsRouteImport.update({
-  id: '/kids',
-  path: '/kids',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -70,10 +58,8 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
-  '/kids': typeof KidsRoute
   '/men': typeof MenRoute
   '/sale': typeof SaleRoute
-  '/women': typeof WomenRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -81,10 +67,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
-  '/kids': typeof KidsRoute
   '/men': typeof MenRoute
   '/sale': typeof SaleRoute
-  '/women': typeof WomenRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesById {
@@ -93,10 +77,8 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
-  '/kids': typeof KidsRoute
   '/men': typeof MenRoute
   '/sale': typeof SaleRoute
-  '/women': typeof WomenRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRouteTypes {
@@ -106,32 +88,19 @@ export interface FileRouteTypes {
     | '/about'
     | '/cart'
     | '/contact'
-    | '/kids'
     | '/men'
     | '/sale'
-    | '/women'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/cart'
-    | '/contact'
-    | '/kids'
-    | '/men'
-    | '/sale'
-    | '/women'
-    | '/product/$id'
+  to: '/' | '/about' | '/cart' | '/contact' | '/men' | '/sale' | '/product/$id'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/cart'
     | '/contact'
-    | '/kids'
     | '/men'
     | '/sale'
-    | '/women'
     | '/product/$id'
   fileRoutesById: FileRoutesById
 }
@@ -140,22 +109,13 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CartRoute: typeof CartRoute
   ContactRoute: typeof ContactRoute
-  KidsRoute: typeof KidsRoute
   MenRoute: typeof MenRoute
   SaleRoute: typeof SaleRoute
-  WomenRoute: typeof WomenRoute
   ProductIdRoute: typeof ProductIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/women': {
-      id: '/women'
-      path: '/women'
-      fullPath: '/women'
-      preLoaderRoute: typeof WomenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sale': {
       id: '/sale'
       path: '/sale'
@@ -168,13 +128,6 @@ declare module '@tanstack/react-router' {
       path: '/men'
       fullPath: '/men'
       preLoaderRoute: typeof MenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kids': {
-      id: '/kids'
-      path: '/kids'
-      fullPath: '/kids'
-      preLoaderRoute: typeof KidsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -220,12 +173,20 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CartRoute: CartRoute,
   ContactRoute: ContactRoute,
-  KidsRoute: KidsRoute,
   MenRoute: MenRoute,
   SaleRoute: SaleRoute,
-  WomenRoute: WomenRoute,
   ProductIdRoute: ProductIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
